@@ -1,0 +1,287 @@
+import inaviLogo from "../assets/logos/inavi.png";
+import oneMillionLogo from "../assets/logos/1million.png";
+
+export interface ProcessStep {
+  text: string;
+  image?: string;
+}
+
+export interface ProjectItem {
+  id: string;
+  companyLogo: string;
+  company: string;
+  tags: string[];
+  period: string;
+  title: string;
+  summary: string;
+  featured?: boolean;
+  coverImage?: string;
+  process?: (string | ProcessStep)[];
+  highlight?: string;
+  role?: string;
+  team?: string;
+  images?: string[];
+}
+
+export const projectsData: ProjectItem[] = [
+  {
+    id: "orda-ai",
+    companyLogo: inaviLogo,
+    company: "아이나비시스템즈",
+    tags: ["AI", "국책과제", "PoC"],
+    period: "2025.11 — 진행 중",
+    title: "오르다AI",
+    summary: "숙명여자대학교 IT공학부와 공동연구한 국가 R&D 과제 기반 등산 안전 AI 서비스 '데이터로 산을 안전하게'. 연간 423억원의 사회적 비용을 낳는 등산 사고 데이터를 분석해 AI 추천 코스·실시간 위험 알림·위험 제보 3가지 핵심 기능을 기획했습니다.",
+    featured: true,
+    coverImage: "/projects/orda-ai/cover.jpg",
+    highlight: "산악사고의 57%가 예측 가능한 사고 · 2026.02~06 등산 데이터 4,380건 수집 · PoC 2026.11 예정",
+    role: "서비스 기획 요구사항 및 정책 정의, UX/UI 기획 및 설계 (기여도 100%, 기획 파트)",
+    team: "PM(1), 기획(1), 디자인(1), 앱개발(2), 서버(1) · 2025.11 — 진행 중",
+    process: [
+      "배경 및 문제점 - 등산객 증가로 안전사고 사회적 비용이 연간 423억원(산림청·소방청). 2024년 신고 산악사고 10,134건 중 57%(실족 27%·조난 23%·신체질환 7%)가 예측·예방 가능했던 사고",
+      "경쟁사 리서치 - 트랭글·램블러·산길샘 조사 결과, 기존 등산 앱은 '길 안내와 기록'에 집중되어 있고 위험 감지·개인화 추천·위험 제보 등 안전 기능은 전반적으로 부재함을 확인",
+      "3가지 핵심 기능 설계 - ① 산행 전 AI 추천 코스 제안 ② 산행 중 실시간 위험 알림 및 위치 전송 ③ 위험 요소 제보 3가지로 사고 예방·대응 기능을 정의, AI 개발은 숙명여대 IT공학부와 공동연구",
+      "데이터 관점 재정리 - 사고유형(실족·조난·신체질환)별 선행 신호와 위험 외부조건(일몰임박·기상급변)을 정의하고, 등산 전/중/후 시점별 필요 데이터 수집 계획 수립",
+      "실행 1: 기획서 작성 및 협업 - 기능·화면 설계 → 필요 데이터 추출 → 협업부서(탐색·네트워크·POI팀·숙명여대) 데이터 요청 → 사양 확정 4단계로 진행. 대피소 POI 데이터 부재 확인 시 진입로 기반 하산 경로 재탐색으로 사양을 조정한 사례 포함",
+      "실행 2: AI 학습 데이터 수집 - 신규 기능이라 학습 데이터가 없는 문제를, 참여 인원 21명(숙대+아이나비)의 직접 등산 수집과 기존 등산 앱 이용약관 개정을 통한 연계 데이터 확보 두 트랙으로 해결해 2026.02~06 5개월간 약 4,380건의 등산 데이터(걸음수·심박수·산소포화도·칼로리·층수) 수집",
+      "산출물 - 신규 구축 프로젝트로 실사용 정량 데이터는 아직 없어, 개인화 추천 코스 적합성·위험구간 알림 발송·위험 제보 피드백 3가지 시나리오를 검증하는 PoC를 2026.11 아웃도어·등산 커뮤니티 테스터 모집으로 진행 예정",
+    ],
+    images: [
+      "/projects/orda-ai/panel-1.jpg",
+      "/projects/orda-ai/panel-2.jpg",
+      "/projects/orda-ai/panel-3.jpg",
+      "/projects/orda-ai/panel-4.jpg",
+      "/projects/orda-ai/panel-5.jpg",
+      "/projects/orda-ai/panel-6.jpg",
+      "/projects/orda-ai/panel-7.jpg",
+      "/projects/orda-ai/panel-8.jpg",
+    ],
+  },
+  {
+    id: "inavi-stamp-orda",
+    companyLogo: inaviLogo,
+    company: "아이나비시스템즈",
+    tags: ["B2B2C", "VOC 개선", "헬스 SDK 연동"],
+    period: "2024.12 — 2026.08",
+    title: "아이나비 스탬프 - 오르다",
+    summary: "지자체 제휴 및 사용자 행동 보상형 B2B2C 플랫폼 '아이나비 스탬프-오르다'와 화성시 체육회가 협업한 스포츠데이·쓰리GO 미션. 오픈 직후 5.7배 급증한 걸음수 VOC의 원인을 진단하고 삼성헬스/애플건강 연동으로 해결해 누적 88.7% 절감을 달성했습니다.",
+    featured: true,
+    coverImage: "/projects/inavi-stamp-orda/cover.jpg",
+    highlight: "VOC 34건 → 195건(오픈 후 5.7배) → 연동 후 3월 대비 5월 누적 -88.7%",
+    role: "서비스 기획 정책 정리 및 와이어프레임 (기여도 80%)",
+    team: "PM(1), 기획(1), 디자인(1), 퍼블리싱(1), 프론트(1), 서버개발(1) · 2026.03 — 2026.04",
+    images: [
+      "/projects/inavi-stamp-orda/panel-1.jpg",
+      "/projects/inavi-stamp-orda/panel-2.jpg",
+      "/projects/inavi-stamp-orda/panel-3.jpg",
+      "/projects/inavi-stamp-orda/panel-4.jpg",
+      "/projects/inavi-stamp-orda/panel-5.jpg",
+      "/projects/inavi-stamp-orda/panel-6.jpg",
+    ],
+    process: [
+      "배경 - 아이나비 스탬프-오르다(B2B2C 리워드 플랫폼, 2025.03.31 출시)와 화성시 스포츠데이·쓰리GO(시민 건강증진 프로그램)의 협업 미션 오픈",
+      "문제 발생 - 오픈 후 VOC가 34건 → 195건으로 약 5.7배 급증, 이 중 72%가 걸음수 오차·누락 관련",
+      "원인 분석 1 - 측정 방식 자체의 오차: 토스·카카오뱅크·당근 등 만보기 서비스 리서치 결과 단말기별 걸음 계산 알고리즘과 오탐지 필터링 임계값이 제각각임을 확인",
+      "원인 분석 2 - 데이터 보관·업로드 구조: 단말 측정 → 앱 실행 → 서버 업로드 구조상 앱 미실행 시 보관기간 7일이 지나면 걸음수 데이터가 유실됨을 확인",
+      "해결방안 - 삼성헬스/애플건강 SDK 연동으로 데이터 동기화: 제조사가 검증한 표준화된 데이터, 무제한 보관기간, Android·iOS 전체 커버 확보",
+      "잔여 문제 대응 - 헬스 연동을 하지 않거나 못하는 사용자를 위해 걸음 수 측정 로직 완화를 개발팀에 요청·반영하고, 월말 이전 앱 실행을 유도하는 정기 푸시 추가",
+      "효과 검증 - 4월 미션 AOS 참가자의 57%(16,545명)가 삼성헬스 연동 완료, 연동 배포 후 첫 미션 걸음수 VOC가 40건으로 -79.5%, 5월 22건까지 감소해 3월 대비 누적 -88.7% 달성",
+    ],
+  },
+  {
+    id: "gimhae-admin-ai",
+    companyLogo: inaviLogo,
+    company: "아이나비시스템즈",
+    tags: ["AI 파이프라인", "Admin", "Figma Make"],
+    period: "2026.05 — 진행 중",
+    title: "끊어지지 않는 기획: AI로 잇는 앱-어드민 설계 프로세스",
+    summary: "김해시 스마트 교통 서비스의 앱 기획과 어드민 기획을 동시에 맡으며 AI를 활용해 둘 사이의 단절을 구조적으로 해결한 프로세스 개선 프로젝트. 기능명세서를 매개로 어드민 IA를 자동 도출하는 파이프라인을 설계해 기획 소요 시간을 50% 단축했습니다.",
+    featured: true,
+    coverImage: "/projects/gimhae-admin/cover.jpg",
+    highlight: "Admin 기획 시간 3주 → 1.5주, 약 50% 단축",
+    role: "서비스 기획 요구사항 및 정책 정의, UX/UI 기획 및 설계 (기여도 100%)",
+    team: "기획(1) - 설계 프로세스 · 2026.05 — 진행 중",
+    images: [
+      "/projects/gimhae-admin/panel-1.jpg",
+      "/projects/gimhae-admin/panel-2.jpg",
+      "/projects/gimhae-admin/panel-3.jpg",
+      "/projects/gimhae-admin/panel-4.jpg",
+      "/projects/gimhae-admin/panel-5.jpg",
+      "/projects/gimhae-admin/panel-6.jpg",
+      "/projects/gimhae-admin/panel-7.jpg",
+      "/projects/gimhae-admin/panel-8.jpg",
+    ],
+    process: [
+      "배경 - 같은 프로덕트의 앱 기획자와 어드민 기획자가 다르면 용어 불일치·해석 오류·커뮤니케이션 비용이 발생. 김해시 스마트 교통 서비스의 앱과 어드민 기획을 동시에 맡으며 이 문제를 AI로 해결해보고자 함",
+      "가설 수립 - 앱 기획의 정책·용어·범위를 명세서로 문서화하고, 이 명세서를 근거로 어드민 설계까지 이어지는 하나의 파이프라인을 만들면 사람이 아닌 문서가 기준이 되어 문제를 구조적으로 해결할 수 있을 것이라 가정",
+      "STEP 1. 기능명세서 추출 - Figma·Claude로 앱 기획 Figma 링크를 AI에 전달해 정책·개발범위·용어를 하나의 기능명세서(.md)로 문서화하는 Skill을 직접 제작 (Figma 읽기 → 없는 내용 지어내지 않기 → 문서 작성 3단계 흐름)",
+      "STEP 2. 어드민 IA 설계 - Claude Code로 작성된 기능명세서를 근거로 AI가 어드민에 필요한 정보구조(IA)를 판단해 제시. 화면 간 역할 분리, 임계값 기반 시각 경고, 개인정보 단계적 노출 등 설계 기준을 세워 진행",
+      "STEP 3. 화면 단위 프롬프트 추출 및 화면 제작 - IA 기반으로 화면별 프롬프트를 Claude Code로 생성해 Figma Make에 입력, 실제 어드민 화면(대시보드·포인트관리·푸시발송·통계/리포트)까지 AI로 제작",
+      "결과 - 기존 3주 걸리던 Admin 기획 시간을 1.5주로 약 50% 단축, 기능명세서 기반으로 앱-어드민 간 용어를 통일해 모호함을 제거, 별도 정리가 필요 없는 명세서 산출물을 확보",
+      "회고(Lesson Learned) - 도구를 얹은 것이 아니라 앱 기획부터 어드민 기획까지 이어지는 흐름 자체를 재설계한, 작은 스케일의 리와이어링이었음을 확인. 다만 정책적 예외나 애매한 판단은 여전히 사람의 영역으로 남았고, 특정 AI 도구(Claude)에 최적화된 프로세스라 다른 도구에서도 동일 품질이 나올지는 추가 검증이 필요",
+      "다음 액션 - AI 확인 루프를 체크리스트로 구조화해 판단 기준을 문서화하고, 파이프라인을 다른 프로젝트에도 재사용 가능한 방법론으로 확장, 어드민에도 동일한 방식을 역으로 적용하는 것을 다음 과제로 설정",
+    ],
+  },
+  {
+    id: "wonmillion-app-renewal",
+    companyLogo: oneMillionLogo,
+    company: "원밀리언",
+    tags: ["UX 리서치", "VOC 분석", "사용성 테스트"],
+    period: "2023.01 — 2023.03",
+    title: "원밀리언 오피셜 앱 사용성 개선 프로젝트",
+    summary: "원밀리언 공식 앱(Flutter)의 사용성 개선 프로젝트. Google Play 리뷰 VOC 분석으로 회원가입 시 과도한 개인정보 요구 문제를 발견하고, A/B 플로우 비교와 사용성 테스트를 거쳐 개인정보 입력을 최소화한 새 온보딩 플로우로 재설계했습니다.",
+    coverImage: "/projects/wonmillion-app-renewal/cover.jpg",
+    highlight: "2022년 앱 이용률 20.2%(기존 가입자 36.8%)에 그쳐 개선 착수 · 부정 리뷰 최다 사유 '개인정보 요구'(9건)",
+    role: "기획 및 디자인 (기여도 40%)",
+    team: "기획·디자인 3인, 개발 2인(Flutter, Back-End) · 2023.01 — 2023.03",
+    images: [
+      "/projects/wonmillion-app-renewal/panel-1.jpg",
+      "/projects/wonmillion-app-renewal/panel-2.jpg",
+      "/projects/wonmillion-app-renewal/panel-3.jpg",
+      "/projects/wonmillion-app-renewal/panel-4.jpg",
+      "/projects/wonmillion-app-renewal/panel-5.jpg",
+      "/projects/wonmillion-app-renewal/panel-6.jpg",
+      "/projects/wonmillion-app-renewal/panel-7.jpg",
+      "/projects/wonmillion-app-renewal/panel-8.jpg",
+      "/projects/wonmillion-app-renewal/panel-9.jpg",
+      "/projects/wonmillion-app-renewal/panel-10.jpg",
+      "/projects/wonmillion-app-renewal/panel-11.jpg",
+    ],
+    process: [
+      "Statement & Problem - 원밀리언 앱은 수업 스케줄 확인·티켓 구매·수업 예약 등 핵심 태스크에 최적화되어 있고, 웹에는 없는 온라인 튜토리얼 클래스도 앱에서만 구매·시청 가능. 그런데도 2022년 전체 사용자의 20.2%, 기존 가입자의 36.8%만 앱으로 결제·예약해 앱 사용 유도를 위한 개선이 필요하다고 판단",
+      "Analysis - VOC - Google Play Console의 2020.01~2022.06 리뷰(평균 평점 3.693, 460명)를 분석한 결과 '로그인 불가·어려움'(17건)에 이어 '개인정보 요구'(9건)가 부정 리뷰 최다 사유. 개발 이슈를 제외하면 UX 관점에서 가장 시급한 문제로 개인정보 요구를 지목해 사용성 개선 프로젝트의 핵심 과제로 설정",
+      "UX 재설계 - 기존(A안)은 이름·이메일·비밀번호·핸드폰번호·주소·생년월일·성별·프로필사진을 회원가입 단계에서 한 번에 요구. 신규(B안)은 이름·이메일·비밀번호·핸드폰번호·생년월일·성별만 가입 시 받고, 프로필 사진은 실제 수업 입장 시 본인 확인 용도로 티켓 구매 이후 단계로 이동, 주소는 완전 삭제",
+      "사용성 테스트 - 원밀리언 신규 입사자 5명을 대상으로 A/B 두 시안을 Mirroring 기능으로 녹화하며 비교 테스트(Adobe XD, Notion 활용). 다수가 '정보를 한 번에 받는 A안이 수업 예약이 목적인 사용자에게 더 편하다'고 응답해, 입력 과정을 분할하지 않고 한 번에 처리하는 방식이 사용성이 더 좋다는 인사이트 도출",
+      "개인정보 항목 정리 - 이름·비밀번호·이메일주소·핸드폰번호·생년월일은 유지, 성별에 '선택 안함' 추가·프로필사진에 목적 문구 추가로 변경, 온라인 마켓 사업 종료 이후 활용되지 않는 주소는 삭제. UX Writing도 AS-IS(용도를 알 수 없어 업로드가 꺼려지는 문구) → TO-BE(목적을 명확히 표기해 거부감을 줄인 문구)로 전면 정리",
+      "대표 UI 개선 - 메인 홈 화면은 무산된 라이브 클래스 자리에 유명 안무가의 튜토리얼 클래스를 노출하고 알림·입장 QR코드를 바로 확인할 수 있도록 재구성. 수업 상세 화면은 예약 가능 여부를 CTA 버튼(예약 마감·정원 마감·수업 중 등)으로 명확히 전달하고 날짜 표기를 한국식(월/일/요일/시간)으로 통일. 내 계정 화면은 한/영 2개 언어 대응에 맞춰 탭 순서를 이용 빈도(예약·티켓·쿠폰·튜토리얼) 기준으로 재설계",
+    ],
+  },
+  {
+    id: "wonmillion-admin",
+    companyLogo: oneMillionLogo,
+    company: "원밀리언",
+    tags: ["Admin", "PC Web", "IA 설계"],
+    period: "2022.04 — 2022.05",
+    title: "원밀리언 사내 Admin 신기능 추가 및 개선 프로젝트",
+    summary: "원밀리언 사내 Admin에 안무가 상세페이지 정보 입력 기능과 직원 복지 혜택인 지인 초대 티켓(1M Friends Ticket) 발급 기능을 새로 기획·디자인했습니다. 하드코딩으로 처리하던 업무를 담당자가 직접 관리할 수 있는 화면으로 전환했습니다.",
+    coverImage: "/projects/wonmillion-admin/cover.jpg",
+    highlight: "안무가 정보 입력을 하드코딩 → Admin 셀프 등록으로 전환 · 직원 전원이 매월 지인 초대 티켓 10장 직접 발송",
+    role: "기획 및 디자인 (기여도 100%, 기획과 디자인 혼자 참여)",
+    team: "개발 3인(Front-End, Back-End) · 2022.04 — 2022.05",
+    images: [
+      "/projects/wonmillion-admin/panel-1.jpg",
+      "/projects/wonmillion-admin/panel-2.jpg",
+      "/projects/wonmillion-admin/panel-3.jpg",
+      "/projects/wonmillion-admin/panel-4.jpg",
+      "/projects/wonmillion-admin/panel-5.jpg",
+      "/projects/wonmillion-admin/panel-6.jpg",
+      "/projects/wonmillion-admin/panel-7.jpg",
+      "/projects/wonmillion-admin/panel-8.jpg",
+      "/projects/wonmillion-admin/panel-9.jpg",
+      "/projects/wonmillion-admin/panel-10.jpg",
+      "/projects/wonmillion-admin/panel-11.jpg",
+      "/projects/wonmillion-admin/panel-12.jpg",
+    ],
+    process: [
+      "[안무가 상세페이지] Statement & Goal - 2022년 홈페이지 리뉴얼로 없던 안무가 상세페이지가 추가되며 정보 입력 시스템이 필요해짐. 기존엔 담당자가 직접 하드코딩으로 정보를 입력했고, 항목이 너무 많고 DB도 없어 관리가 어려웠음. 코드에 직접 입력하지 않아도 누구나 직관적이고 빠르게 정보를 등록할 수 있도록 기획·디자인",
+      "[안무가 상세페이지] Persona & JourneyMap - 매니지먼트팀 3년차 직원 페르소나: '해당 업무를 처리하는데 시간이 많이 소요되고, 개발자와 직접 코드에 입력하다 보니 복잡해서 업무를 대신할 사람이 없다'는 페인포인트를 확인. 섹션별로 받아야 할 정보를 안내하고, 홈페이지까지 가지 않아도 Admin에서 바로 업로드 정보를 확인하는 것으로 해결 방향 설정",
+      "[안무가 상세페이지] IA 설계 - Admin 최상위 IA(권한관리·회사정보·HR·결제관리·수업관리·상품관리·다국어지원)를 정의하고, HR 하위에 안무가 관리 메뉴를 배치",
+      "[안무가 상세페이지] 화면 설계 - 기존 GNB의 HR 서브메뉴에 Choreographer 메뉴를 추가하고 전체 안무가 리스트(Name·ShowFlag·ContractFlag·Setting)를 테이블로 관리, 신규 계약 체결 시 버튼 하나로 등록 가능하도록 설계. 등록 폼은 임시저장 기능으로 필수값을 다 채우지 않아도 재입력할 수 있게 하고, 입력 위치를 실제 홈페이지 화면으로 미리보기하는 팝업을 제공. 최신 비디오·수강생 피드백은 별도 팝업으로 등록",
+      "[지인 초대 티켓] Statement & Goal - 2022년 신설된 복지 혜택 '1M Friends Ticket'을 직원이 아카데미팀을 거치지 않고 스스로 지인에게 발급할 수 있도록 기능화. 매월 직원 1인당 지인 초대 티켓 10장이 발급되고 이를 Admin에서 간단히 발송하도록 목표 설정",
+      "[지인 초대 티켓] Persona & JourneyMap - 입사 6개월차 개발팀 직원 페르소나: '아카데미팀이 아닌 내가 직접 초대하고 싶고, 초대받은 친구가 회원가입을 귀찮아하지 않았으면 한다'는 니즈 확인. 친구의 최소 개인정보만으로 직원 누구나 매월 10장씩 티켓을 발송할 수 있는 기능으로 해결",
+      "[지인 초대 티켓] User Flow - 직원: Admin → 티켓 관리 → 받는 사람 이메일·전화번호·이름 입력 후 티켓 발송 → 발송 내역 확인. 지인: 메일 확인 → 1M 홈페이지 이동 → 직원이 입력한 정보는 자동 입력된 상태로 회원가입(추가 정보만 입력) → 로그인 → 티켓 확인 → 수업 예약",
+      "[지인 초대 티켓] 화면 설계 - 기존 GNB의 Class 메뉴에 Ticket 서브메뉴를 추가하고, 사원명·소속팀·E-mail·티켓 수량이 정리된 테이블과 전 직원 공통 노출되는 'Send a Ticket' 발송 버튼을 제공. 본인과 관리자만 열람 가능한 티켓 사용 히스토리 팝업(발급·사용·잔여 수량, 기간별 사용 내역)으로 개인정보를 보호하면서 사용 현황을 투명하게 확인 가능",
+    ],
+  },
+  {
+    id: "kt-1m-homedance",
+    companyLogo: oneMillionLogo,
+    company: "원밀리언",
+    tags: ["TV 앱", "AI 코칭", "IPTV"],
+    period: "2022.05 — 2022.08",
+    title: "KT IPTV - 1M HomeDance",
+    summary: "KT GenieTV와 협업해 제작한 댄스 클래스 TV 전용 앱(Android IPTV). 코로나 이후 집에서 춤을 배우려는 수요를 겨냥해, 원밀리언 튜토리얼 영상에 AI 코칭 기능을 더해 실력이 쌓여가는 것을 느낄 수 있는 서비스로 기획했습니다.",
+    coverImage: "/projects/kt-1m-homedance/cover.jpg",
+    highlight: "카드 UI를 16:9로 개편해 한 화면 노출 콘텐츠 2.2개 → 4.5개로 증가",
+    role: "기획 및 디자인 (기여도 50%, 기획과 디자인 참여)",
+    team: "개발 2인(Android, Back-End) · 2022.05 — 2022.08",
+    images: [
+      "/projects/kt-1m-homedance/panel-1.jpg",
+      "/projects/kt-1m-homedance/panel-2.jpg",
+      "/projects/kt-1m-homedance/panel-3.jpg",
+      "/projects/kt-1m-homedance/panel-4.jpg",
+      "/projects/kt-1m-homedance/panel-5.jpg",
+      "/projects/kt-1m-homedance/panel-6.jpg",
+      "/projects/kt-1m-homedance/panel-7.jpg",
+      "/projects/kt-1m-homedance/panel-8.jpg",
+      "/projects/kt-1m-homedance/panel-9.jpg",
+      "/projects/kt-1m-homedance/panel-10.jpg",
+      "/projects/kt-1m-homedance/panel-11.jpg",
+    ],
+    process: [
+      "Statement & Goal - 코로나 이후 집에서 취미를 즐기는 사람이 늘며, 원밀리언 앱에서 소량 판매하던 튜토리얼 영상을 KT GenieTV와 협업해 대중용 서비스로 확장. AI 코칭 기능으로 배우는 실력이 쌓여가는 걸 느낄 수 있는 서비스를 목표로 설정",
+      "경쟁사 분석 - 스티지·클래스101·월렌댄스를 벤치마킹해 온라인 댄스 클래스만의 필수 요소(거울 기능, 섹션별 구분, 반반모드)를 확인하고, AI 실력 확인·연습영상 저장/공유·주간 활동량 대시보드를 차별화 전략으로 설정",
+      "사용자 인터뷰 - 1Million 오프라인 수강생 8명을 대상으로 1:2 인터뷰(1인당 약 1시간) 진행. '온라인 수업은 시선 부담 없이 자유롭지만 질문이 어렵다', '기본기·트레이닝 수업이 있으면 좋겠다', '실력을 보여주려 수업마다 영상을 공유한다'는 인사이트 확보",
+      "UX Writing 정리 - 사용자 환경 체험을 통해 'AI 평가/피드백'을 배우는 느낌의 'AI 코칭'으로, 'T포즈'를 더 직관적인 표현으로, '클라우드'를 '녹화된 영상'으로 다듬어 받아들이기 쉬운 문장으로 수정",
+      "IA 설계 - 홈댄스 접속 → 회원가입/로그인 후 메인(이벤트배너·튜토리얼·AI관 배너), 클립(원밀리언 숏폼), AI 코칭관(튜토리얼·대시보드), 설정 4개 영역으로 정보구조 설계",
+      "홈 화면 설계 - 카드 UI를 기존 가로형에서 16:9 비율로 바꿔 한 화면 노출 콘텐츠를 2.2개에서 4.5개로 늘리고, AI 코칭 가능 튜토리얼에 뱃지를 달아 구분하고, AI 코칭 콘텐츠만 모아보는 배너를 추가",
+      "플레이어 설계 - 안무가와 수강생의 동작 일치 여부를 한눈에 보는 반반모드를 추가하고, 배속·자막처럼 댄스에 방해되는 기능은 제거, AI 코칭 모드 접근 버튼을 배치",
+      "AI 코칭관 설계 - 주간 AI 코칭 사용 시간·평균 등급·탑 랭크를 보여주는 일주일 통계, 처음 접하는 사용자를 위한 1회성 AI 코칭 가이드, 이전 코칭 기록과 녹화 영상을 모아보는 화면으로 구성",
+      "AI 코칭 분석 결과 - 구간별 평균 동작 일치율을 '등급'이 아닌 '수치'로 표현해 미세한 성장도 비교 가능하게 하고, 최고/최저 구간을 표시(최고 구간은 불 애니메이션으로 흥미 요소 추가)하며, 팀원 피드백을 반영해 구간 이동 버튼을 추가",
+    ],
+  },
+  {
+    id: "toyota-navigation-ut",
+    companyLogo: inaviLogo,
+    company: "아이나비시스템즈",
+    tags: ["Automotive UX", "사용성 테스트", "실사용자 리서치"],
+    period: "2024.05 — 2024.10",
+    title: "LG U+ 주관 토요타/렉서스 내비게이션 사용성 테스트",
+    summary: "토요타 코리아 - LG U+(인포테인먼트 플랫폼 제공사) - 아이나비시스템즈(내비게이션 개발) 구조에서, LG U+가 주관한 24MM 인포테인먼트 실사용 테스트에 내비게이션 담당사로 참여했습니다. 21MM 및 경쟁사 대비 실사용자 피드백을 교차 검증해 UX 개선안을 도출했습니다.",
+    coverImage: "/projects/toyota-navigation-ut/cover.jpg",
+    highlight: "21MM·경쟁사 대비 개선 인사이트 7건 도출 → 2026년 6월 라브4 탑재 반영",
+    role: "LG U+ 주관 사용성 평가에 내비게이션 담당사로 참여, 시나리오 설계 및 실사용자 피드백 기반 UX 개선안 도출 (기여도 100%, 내비게이션 파트)",
+    team: "LG U+ Biz/인프라 UX팀(주관) · 토요타 코리아(클라이언트) · 아이나비시스템즈 내비게이션 기획(당사) · 2024.05 — 2024.10",
+    process: [
+      "배경 - 25년 렉서스/토요타 신모델에 탑재될 U+Drive 24MM 인포테인먼트가 21MM 및 경쟁사(현대기아, 제네시스, 볼보) 대비 실사용 완성도를 갖췄는지 검증이 필요해, LG U+ 주관으로 실차 사용성 평가를 진행",
+      {
+        text: "목적 - 내비게이션 기준 ①주행 전/중/후 사용성 검증 ②21MM·경쟁사 대비 비교 평가 ③실차 환경에서의 추가 개선 필요사항 점검, 3가지 목표로 조사 설계. 24MM 제공 서비스 중 주요 UX 개선 사항이 있었던 7개 서비스에 내비게이션도 포함되어 테스트 진행",
+        image: "/projects/toyota-navigation-ut/panel-4.jpg",
+      },
+      {
+        text: "조사 설계 - 주 3회 이상 운전하는 25~50대 남녀 30명(21MM 보유 10~15명, 경쟁사 보유 15~20명) 대상, 2:1 Paired IDI 방식의 실차 인터뷰로 진행 (세션당 90분: 주행 전 45분 / 주행 중 15분 / 주행 후 20분)",
+        image: "/projects/toyota-navigation-ut/panel-2.jpg",
+      },
+      {
+        text: "사전 준비 - 응답자에게 주행 전/중/후 Task를 사전 과제로 부여해 본인 차량과 비교하며 평가하도록 준비시켰고, 내비게이션 Task용 실주행 코스(카페 주차장~세차장~지상, 약 10분)를 사전 답사해 확정",
+        image: "/projects/toyota-navigation-ut/panel-1.jpg",
+      },
+      {
+        text: "설문 항목 - 목적지 설정 / 경로 탐색 / 주행 중 / 도착 4단계 시나리오(예: 주소 검색, 경유지 추가, 최저가 주유소 확인, 주차장 탐색 등)를 설계하고, 각 시나리오를 사용성·접근성·시인성 3개 축 + 실패 시 혼선 포인트로 평가",
+        image: "/projects/toyota-navigation-ut/panel-5.jpg",
+      },
+      {
+        text: "진행 방식 - 주행 전엔 목적지 설정·빠른 경로 탐색 Task, 주행 중엔 음성 호출·경유지 변경·야간모드 전환 Task, 주행 후엔 21MM 대비 선호도 Paired 비교평가 순으로 진행",
+        image: "/projects/toyota-navigation-ut/panel-3.jpg",
+      },
+      "결과 - 21MM 대비 24MM 강점(2D 심플함, 1:1 화면 비중 만족도)과 약점(정보 밀도 부족, 폰트 가독성, 다음 경로 강조 약함)을 교차 검증해 화면 비율 커스터마이징, 검색창 위치, 다음 경로 강조 등 7개 핵심 개선 인사이트로 종합",
+      {
+        text: "반영 사례 ① - 주행 중 메뉴 진입 시 주행규제 여부를 사전 인지할 수 없던 문제를 발견해, 메인 진입 시 주행규제 상태를 팝업으로 먼저 안내하도록 개선",
+        image: "/projects/toyota-navigation-ut/panel-6.jpg",
+      },
+      {
+        text: "반영 사례 ② - 경로상 주유소를 거리순으로만 볼 수 있어 최저가 파악이 어렵던 문제를 발견해, 리스트에 최저가 배지를 추가",
+        image: "/projects/toyota-navigation-ut/panel-7.jpg",
+      },
+      {
+        text: "반영 사례 ③ - 과속 경고음을 Mute해도 경고 아이콘이 계속 노출되던 중복 정보를 발견해, Mute 시 아이콘도 함께 숨기도록 개선",
+        image: "/projects/toyota-navigation-ut/panel-8.jpg",
+      },
+      {
+        text: "반영 사례 ④ - 회전정보/고속모드 화면의 UI가 서로 달라 운전 중 시각적 혼선이 있던 문제를 발견해, 두 화면의 UI 구조를 통일하고 정보가 없을 때도 안내 문구를 제공하도록 개선",
+        image: "/projects/toyota-navigation-ut/panel-9.jpg",
+      },
+      "출시 - 개선사항을 반영해 2026년 6월 토요타 라브4 차량에 탑재·출시",
+    ],
+  },
+];

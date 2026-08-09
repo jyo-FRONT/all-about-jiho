@@ -1,0 +1,10 @@
+{
+  "description": "A responsive, minimalist portfolio platform showcasing career, skills, projects, testimonials, and articles with customizable sections for professionals.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
