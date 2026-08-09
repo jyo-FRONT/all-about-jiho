@@ -60,7 +60,7 @@ export default function Home() {
 
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2dd4bf]/10 border border-[#2dd4bf]/20 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2dd4bf] animate-pulse" />
-            <span className="text-xs text-[#2dd4bf]">UX/UI 기획자 · AI Native</span>
+            <span className="text-xs text-[#2dd4bf]">서비스 기획자 · AI Native</span>
           </div>
 
           <h1 className="font-['Instrument_Sans'] font-bold text-5xl md:text-7xl text-white mb-4 leading-none tracking-tight">
