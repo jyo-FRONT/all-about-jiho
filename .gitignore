@@ -12,3 +12,4 @@ logs/
 .claude-replay.*
 .tmp-*
 .vercel
+.DS_Store
