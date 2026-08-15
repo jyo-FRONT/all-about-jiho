@@ -55,7 +55,6 @@ export const projectsData: ProjectItem[] = [
       "/projects/orda-ai/panel-5.jpg",
       "/projects/orda-ai/panel-6.jpg",
       "/projects/orda-ai/panel-7.jpg",
-      "/projects/orda-ai/panel-8.jpg",
     ],
   },
   {
